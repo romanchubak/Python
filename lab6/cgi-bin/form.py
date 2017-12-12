@@ -1,11 +1,12 @@
 import cgi
-from collections import Counter
+def isVowel(char):
+    return char.lower() in 'aeiou'
 
 form = cgi.FieldStorage()
 word = form.getfirst("word", "Missing a argument.")
 count = 0;
-for (key, value) in Counter(word).items():
-    if value.isalpha():
+for ch in word:
+    if isVowel(ch):
         count+=1
 print("Content-type: text/html\n")
 print("""<!DOCTYPE HTML>
@@ -14,8 +15,10 @@ print("""<!DOCTYPE HTML>
             <meta charset="utf-8">
             <title>Result</title>
         </head>
-        <body>""")
+        <body>
+		word : 
+		""")
 print(word)
-#print("<br>" + str(count) + " - alpha leters")
+print("<br>include <br>" + str(count) + " - vowel leters")
 print("""</body>
         </html>""")

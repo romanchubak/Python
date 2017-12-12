@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>53c9d7ca-f5c8-4e50-9955-9df0d78389d3</ProjectGuid>
+    <ProjectGuid>399084e7-fe18-4163-8e72-2eaa4dc90f2e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>lab5.py</StartupFile>
     <SearchPath>
@@ -22,7 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="lab5.py" />
-    <Compile Include="SQL.py">
+    <Compile Include="sql.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -21,17 +21,17 @@ class SQL:
 
     def add(self, book):
         self.con.execute("INSERT INTO Book (first_name_author, second_name_author, name, number_of_page, year_of_publication, name_of_publishing_house, date_of_arrival) VALUES (?, ?, ?, ?, ?, ?, ? )",
-                                            (book.first_name_author, book.second_name_author,book.name,book.number_of_page,book.year_of_publication,book.name_of_publishing_house,book.date_of_arrival));
+                                            book.first_name_author, book.second_name_author,book.name,book.number_of_page,book.year_of_publication,book.name_of_publishing_house,book.date_of_arrival);
         self.con.commit()
 
     def count_unique_authors(self):
         cursor =  self.con.execute("SELECT COUNT(DISTINCT second_name_author) FROM Book;")
-        return cursor.fetchone()
+        return cursor.fetchone()[0]
 
     def print(self):
         cursor = self.con.execute("SELECT * FROM Book;")
-        data = cursor.fetchall()
-        print(data)
+        
+        print(cursor.fetchall())
 
     def find_oldest_book(self):
         cursor = self.con.execute("SELECT name FROM Book ORDER BY year_of_publication DESC LIMIT 1;")
